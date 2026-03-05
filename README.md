@@ -17,7 +17,8 @@ Thermal imaging uses a special type of camera that picks up infrared radiation e
   - Far Infrared = Thermal imaging, Astronomy, Environmental analysis( Air Quality Monitoring)
   
     
-  - <img width="326" height="155" alt="image" src="https://github.com/user-attachments/assets/1169ea59-6b8c-44aa-b06e-801bbbeb3bb8" />
+  - <img width="1435" height="685" alt="image" src="https://github.com/user-attachments/assets/4d53a084-92ef-4b97-adf8-498411a7549d" />
+
   
 
 
