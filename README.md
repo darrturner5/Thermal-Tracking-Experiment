@@ -27,6 +27,7 @@ These are just some of the many amazing aspects of Thermal Imaging. I want to te
 ## System Architecture
 I am using a Melexis MLX90640 32x24 Pixel Infrared Thermal Camera 
 ![IMG_8445](https://github.com/user-attachments/assets/4552b028-94a0-4f67-8c92-e761d135f967)
+![IMG_8446](https://github.com/user-attachments/assets/914fcc75-37a9-4001-807d-5d35adbd946d)
 
 
 
