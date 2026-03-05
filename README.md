@@ -1,4 +1,4 @@
-# Thermal-Tracking-Experiment
+
 # How do different PID tuning methods affect Thermal Camera accuracy?
 
 
@@ -28,6 +28,9 @@ I am using a Melexis MLX90640 32x24 Pixel Infrared Thermal Camera
 ![IMG_8445](https://github.com/user-attachments/assets/4552b028-94a0-4f67-8c92-e761d135f967)
 
 
+
+
+# CONTROL THEORY
 
 # Sources
 - https://celliant.com/pulse/all/infrared-light/#:~:text=Infrared%20energy%20is%20typically%20divided,penetrate%20the%20skin%20and%20tissues.
