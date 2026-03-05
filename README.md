@@ -1,4 +1,4 @@
-# THERMAL TRACKING EXPERIMENT
+# THERMAL TRACKING EXPERIMENT:
 ## How do different PID tuning methods affect Thermal Camera accuracy?
 - How do different PID tuning methods affect Thermal Camera accuracy?
 
