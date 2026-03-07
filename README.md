@@ -49,6 +49,8 @@ that need continous control. Commonly used in Robotics and Automation systems, H
 
 This controller is excellent as Ive used only P and the PD control in Camera Guided Laser Tracking System and they've worked really well. Ive never experimented with the Integral component or the full PID controller. I will test each one and test their accuracy, and flaws. 
 
+Now getting my actual measured value for my tracking Im thinking either to get the hottest pixel and track that way, or see if I could still use contour and centroid detection.
+
 # Sources
 - https://celliant.com/pulse/all/infrared-light/#:~:text=Infrared%20energy%20is%20typically%20divided,penetrate%20the%20skin%20and%20tissues.
 - https://www.icnirp.org/en/frequencies/infrared/index.html#:~:text=Wavelength%20range%20and%20sources,fall%20into%20the%20infrared%20region.
