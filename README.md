@@ -34,6 +34,20 @@ I am using a Melexis MLX90640 32x24 Pixel Infrared Thermal Camera
 
 
 # CONTROL THEORY
+This is a PID Controller (Proportional - Integral - Derivative). It is a feedback closed loop controller used in machines, or a process
+that need continous control. Commonly used in Robotics and Automation systems, HVAC (Heating, Ventilation, Air Conditioning), Industrial systems in factories etc. It works by comparing a specific setpoint and measured value of the system. This is known as the error. The controller tries to make the measured value as close as it can towards the setpoint of the system.
+- (P) = Corrects by setting an output directly proportional to the error (Output = Kp * Error)
+- (I) = Sum of all past errors, Reduce Steady State error ( Error that persists when the system stops correcting)
+- (D) = Rate of change of error, Eliminates Overshoot and Oscillation.
+
+  There are different variations to this controller where each serve a diffent purpose for whatever system you're dealing with.
+  There are:
+- (P) Only Control
+- (PI) Proportional - Integral
+- (PD) Proportional - Derivative
+- (PID) Proportional - Integral - Derivative
+
+This controller is excellent as Ive used only P and the PD control in Camera Guided Laser Tracking System and they've worked really well. Ive never experimented with the Integral component or the full PID controller. I will test each one and test their accuracy, and flaws. 
 
 # Sources
 - https://celliant.com/pulse/all/infrared-light/#:~:text=Infrared%20energy%20is%20typically%20divided,penetrate%20the%20skin%20and%20tissues.
