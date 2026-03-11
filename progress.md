@@ -25,7 +25,15 @@
 
 # 3/10/26
 - Changed 5V to 3.3V on MLX90640
-- Imported the MLX90640 Library, Python Code:
+- Installed and Imported the MLX90640 Library
+  
+      cd thermal_tracker
+      source venv/bin/activate
+      pip install adafruit-blinka
+      pip install adafruit-circuitpython-mlx90640
+
+
+- Python Code:
   
       import numpy as np
       import matplotlib.pyplot as plt
@@ -44,17 +52,18 @@
             mlx.getFrame(frame)
             except ValueError:
               continue
-      
-    
 
-- Error messages that the board module isnt being read. In Terminal:
+      plt.imshow(frame)
+      plt.colorbar()
+      plt.show()
+
   
-      cd thermal_tracker
-      source venv/bin/activate
-      pip install adafruit-blinka
-      pip install adafruit-circuitpython-mlx90640
+      
+-  This was to get the sensor to run and continously display an image. I kept getting:
+  
+        ModuleNotFoundError: No module named 'board'
 
-- This still did not solve the issue. Im still getting ModuleNotFound errors regarding busio and board imports. They are installed and Ive tried to change the Python interpreter in Thonny but nothing seemed to work today. 
+- Error messages that the board module isnt being read. This is pointing towards an interpreter issue in Thonny. I tried to change it to a different interpreter that has these libraries installed.  Both the busio and board imports still arent found inside the code. These should be included inside the adafruit-blinka library. Maybe im not changing it to the right interpreter. So we'll try again tomorrow.
       
       
 
