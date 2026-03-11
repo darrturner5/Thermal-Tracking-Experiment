@@ -22,4 +22,32 @@
 
  - Goal for 3/10:
  - DISPLAY BASIC HEAT MAP FROM MLX90640
+
+# 3/10/26
+- Changed 5V to 3.3V on MLX90640
+- Imported the MLX90640 Library, Python Code:
+  
+      import numpy as np
+      import matplotlib.pyplot as plt
+      import pyserial
+      import smbus
+      import board
+      import busio
+      import adafruit_mlx90640
+
+      i2c = busio.I2C(board.SCL, board.SDA)
+      thermal = adafruit_mlx90640  #Initialize the sensor
+
+- Error messages that the board module isnt being read. In Terminal:
+  
+      cd thermal_tracker
+      source venv/bin/activate
+      pip install adafruit-blinka
+      pip install adafruit-circuitpython-mlx90640
+
+- This still did not solve the issue. Im still getting ModuleNotFound errors regarding busio and board imports. They are installed and Ive tried to change the Python interpreter in Thonny but nothing seemed to work today. 
+      
+      
+
+  
       
