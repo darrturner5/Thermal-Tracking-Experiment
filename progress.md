@@ -37,6 +37,15 @@
 
       i2c = busio.I2C(board.SCL, board.SDA)
       thermal = adafruit_mlx90640  #Initialize the sensor
+  
+      frame = [0] * 768  #24x32 sensor 768 pixels
+      while True:
+        try:
+            mlx.getFrame(frame)
+            except ValueError:
+              continue
+      
+    
 
 - Error messages that the board module isnt being read. In Terminal:
   
