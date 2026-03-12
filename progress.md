@@ -146,6 +146,8 @@
 
 
     -  The amount of time it takes to swtch between each frame is very slow and kinda laggy almost. This will be an issue going forward       especially if were going to track the hottest region or centroid because the servos will start to lag behind.
+    -  [![MLX90640 DEMO](![IMG_8478](https://github.com/user-attachments/assets/68177241-9e32-45f5-9738-c07b22cdcfbe)
+)](https://www.youtube.com/watch?v=pKJAl4Ml11M)
    
     - Although I learned new matplotlib functions, plt.ion(), plt.clf(), plt.pause()
     - Learned and how to properly setup the sensor
