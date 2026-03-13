@@ -155,6 +155,42 @@
     - Properly switch and change my python interpreter on Linux
 
       Tomorrow I am going to see how I can make it switch and detect each frame much quicker and have less lag. As it'll be very important to get this right going forward.
+
+      # 3/12/26
+       In the MLX90640 Datasheet, The refresh rate supposedly goes from 0.5Hz to 64Hz, which is roughly 4 seconds to 0.03125 seconds. I        definitely want the quickest refresh time but i gotta see if my Pi could handle all of that. It probably could but I want to try        that out.
+   
+      I added a refresh rate right underneath the intializing of the sensor:
+      
+            thermal.refresh_rate = adafruit_mlx90640.RefreshRate.REFRESH_64_HZ
+   
+      Only to get hit with an error of:
+      
+            raise RuntimeError ("Too many retries")
+            RuntimeError: Too many retries
+   
+      I believe since the sensor might be producing more data much quicker, Its running through my code much quicker as well. So each new frame is getting updated and closed really really fast. Thats my guess on maybe thats whats going on. Or maybe my Raspberry Pi cant handle all of that.
+      After some trial and error, the only highest possible Refresh Rate I coulkd go with with 4HZ which still moved a little slow for my liking.
+      - Increasing the baudrate on my I2C pins on my Raspberry Pi could work. Although this may use up more power and produce more heat. Especially with the little heat sink that I currently hae on the GPU. So id have to adjust accordingly so I wouldnt damage my Raspberry PI.
+
+      I changed this by going into the terminal :
+
+          sudo nano /boot/firmware/config.txt
+
+      And adding:
+
+          dtparam=i2c_arm=on, i2c_arm_baudrate=400000
+   
+      - (400kHz Baudrate). The PI can go much quicker up to 1MHZ but I am really afraid of overheating and frying the PI. I know thats going to get really hot when the camera is on. A future upgrade would be to install heatsinks and fans if I ever want to approach those numbers. But for now ill test the performance of the 400kHz Baudrate and see its effects on the PI and the speed of the sensor.
+      - Back inside my code, I added the frequency to the i2c variable:
+
+            i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+    
+
+      - The Sensor data is actually a little bit faster than before. Its updating slightly quicker but still not to the area that I want it to be as its still kind of jittery and laggy ish. Im running my refresh rate at 4Hz which I think is slowing it down. The problem im running into is just the runtime error that I keep getting.
+      - Tomorrows goal is to address that issue and see if i could get a faster refresh rate than 4Hz.
+        
+   
+       
    
     
 
