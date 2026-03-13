@@ -79,7 +79,7 @@
  
         thermal = adafruit_mlx90640.MLX90640(i2c)
   - The code works but nothing seems to pop up. Thats expected as now were going to need to plot it with matplotlib and numpy.
-  - I also amde the mistake of putting "mlx.getFrame(frame)" when mlx isnt defined. I have thermal defined as my sensor.
+  - I also made the mistake of putting "mlx.getFrame(frame)" when mlx isnt defined. I have thermal defined as my sensor.
   - I had my matplotlib functions after my while True function which resulted in it not plotting anything beause the while True ran a continous loop
  
         
