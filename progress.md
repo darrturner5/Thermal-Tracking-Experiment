@@ -157,7 +157,7 @@
       Tomorrow I am going to see how I can make it switch and detect each frame much quicker and have less lag. As it'll be very important to get this right going forward.
 
       # 3/12/26
-       In the MLX90640 Datasheet, The refresh rate supposedly goes from 0.5Hz to 64Hz, which is roughly 4 seconds to 0.03125 seconds. I        definitely want the quickest refresh time but i gotta see if my Pi could handle all of that. It probably could but I want to try        that out.
+       In the MLX90640 Datasheet, The refresh rate goes from 0.5Hz to 64Hz, which is roughly 4 seconds to 0.03125 seconds. I        definitely want the quickest refresh time but i gotta see if my Pi could handle all of that. It probably could but I want to try        that out.
    
       I added a refresh rate right underneath the intializing of the sensor:
       
