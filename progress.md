@@ -195,6 +195,10 @@
               plt.ion()
               fig, ax = plt.subplots(figsize=(12,7))
               therm1 = ax.imshow(np.zeros((24,32)), vmin=0, vmax=60)
+
+        i might just push the I2C to 1MHz just to see what happens. I also have a question regading if matplotlib is actually slowing down the sensor? It might be a little weird to say but could that be the case? Because its conbtinously generating and deleting plots.
+
+        
         
    
        
