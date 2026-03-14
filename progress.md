@@ -198,6 +198,8 @@
 
         i might just push the I2C to 1MHz just to see what happens. I also have a question regading if matplotlib is actually slowing down the sensor? It might be a little weird to say but could that be the case? Because its conbtinously generating and deleting plots.
 
+        The CPU is warm but Its actually not that bad. Im gonna keep it at 1MHz. Once again the speed of the graph is much better but not the greatest in tracking that were going to be doing.
+
         
         
    
