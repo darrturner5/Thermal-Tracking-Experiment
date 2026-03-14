@@ -188,6 +188,13 @@
 
       - The Sensor data is actually a little bit faster than before. Its updating slightly quicker but still not to the area that I want it to be as its still kind of jittery and laggy ish. Im running my refresh rate at 4Hz which I think is slowing it down. The problem im running into is just the runtime error that I keep getting.
       - Tomorrows goal is to address that issue and see if i could get a faster refresh rate than 4Hz.
+
+      # 3/13/26
+      - I started by using subplots instead of one whole graph. This actually worked better in my favor because it allowed me to increase my refresh rate from 4 to 16Hz which is really good. The plot is still very laggy and not suitable enough for precise tracking.
+     
+              plt.ion()
+              fig, ax = plt.subplots(figsize=(12,7))
+              therm1 = ax.imshow(np.zeros((24,32)), vmin=0, vmax=60)
         
    
        
