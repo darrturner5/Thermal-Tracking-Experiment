@@ -230,10 +230,11 @@
           
                cv2.imshow('t',img)
                cv2.waitKey(1)
-          - The results worked really well and is much smoother than the matplotlib. This works much much better for tracking and Im going to see if I could make it more smoother. The image is a black and white video with white being the hotspots and black being the spots that emit no heat. 
+          - The results worked really well and is much smoother than the matplotlib. This works much much better for tracking and Im going to see if I could make it more smoother. The image is a black and white video with white being the hotspots and black being the spots that emit no heat.
+            
           [![OPENCV PROCESSING WITH MLX90640]](https://www.youtube.com/watch?v=iVqEDPPg1hQ)
 
-          To take it off from the black and white image, I applied the inferno colormap.
+          To take off the black and white image, I applied the inferno colormap.
 
               img = cv2.applyColormap(img,cv2.COLORMAP_INFERNO)
 
