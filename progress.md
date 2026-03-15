@@ -200,6 +200,39 @@
 
         The CPU is warm but Its actually not that bad. Im gonna keep it at 1MHz. Once again the speed of the graph is much better but not the greatest in tracking that were going to be doing.
 
+        3/14/26
+
+        - Installed OpenCV to capture thermal frames instead. I first normalized the image from temperature readings from the sensor to image pixels to be displayed on OpenCV. I added interpolation which fixes our laggy issue between each frame.
+          
+               import cv2
+              
+               img = cv2.normalize(data,None,0,255,cv2.NORM_MINMAX)
+               img = uint(img)
+
+               img = cv2.resize(img,(640,380), interpolation=cv2.INTER_LINEAR) # I interchanged between INTER_CUBIC and INTER_LINEAR.                  both work really well
+          
+               cv2.imshow('t',img)
+               cv2.waitKey(1) 
+
+
+        - The result was the error code:
+          
+              (-215:Assertion failed) func != 0 in function 'resize'
+
+          Which all points back to our normalization code. OpenCV did not get the sufficient data it needed to convert the temperature readings. My MLX90640 sends floating point temperatures like (23.1C). OpenCV expects data in uint8 or uint16 format. I set up my code to run at 8 bit format. This emans we need nonnegative integers ranging from 0 to 255. So really all the fix is to put the 8 in the uint(img) part of the code to get it working again.
+
+          import cv2
+              
+               img = cv2.normalize(data,None,0,255,cv2.NORM_MINMAX)
+               img = uint8(img)
+
+               img = cv2.resize(img,(640,380), interpolation=cv2.INTER_LINEAR) # I interchanged between INTER_CUBIC and INTER_LINEAR.                  both work really well
+          
+               cv2.imshow('t',img)
+               cv2.waitKey(1)
+          - The results worked really well and is much smoother than the matplotlib. This works much much better for tracking and Im going to see if I could make it more smoother. The image is a black and white video with white being the hotspots and black being the spots that emit no heat. 
+          [![OPENCV PROCESSING WITH MLX90640]())](https://www.youtube.com/watch?v=iVqEDPPg1hQ)
+
         
         
    
