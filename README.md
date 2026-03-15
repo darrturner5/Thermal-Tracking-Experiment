@@ -58,4 +58,11 @@ Now getting my actual measured value for my tracking Im thinking either to get t
 - https://www.nist.gov/image/electromagnetic-spectrum
 - https://nlir.com/infrared-spectrum-wavelengths/
 
+Thank you to:
+https://github.com/makerportal/raspi-thermal-cam/blob/master/README.md
+
+https://how2electronics.com/diy-thermal-imaging-camera-with-mlx90640-raspberry-pi/
+
+For inspiration for the MLX90640 Project.
+
 
