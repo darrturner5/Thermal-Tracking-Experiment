@@ -221,7 +221,7 @@
 
           Which all points back to our normalization code. OpenCV did not get the sufficient data it needed to convert the temperature readings. My MLX90640 sends floating point temperatures like (23.1C). OpenCV expects data in uint8 or uint16 format. I set up my code to run at 8 bit format. This emans we need nonnegative integers ranging from 0 to 255. So really all the fix is to put the 8 in the uint(img) part of the code to get it working again.
 
-          import cv2
+               import cv2
               
                img = cv2.normalize(data,None,0,255,cv2.NORM_MINMAX)
                img = uint8(img)
@@ -236,7 +236,7 @@
 
           To take off the black and white image, I applied the inferno colormap.
 
-              img = cv2.applyColormap(img,cv2.COLORMAP_INFERNO)
+                img = cv2.applyColormap(img,cv2.COLORMAP_INFERNO)
 
           - [![OPENCV INFERNO COLORMAP]](https://www.youtube.com/shorts/rCxOWqm78tQ)
 
@@ -254,6 +254,8 @@
                        filtered = data
                   else:
                     filtered = alpha*filtered + (1-alpha)*data
+
+            
 
         
         
