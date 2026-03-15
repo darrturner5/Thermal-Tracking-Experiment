@@ -200,7 +200,7 @@
 
         The CPU is warm but Its actually not that bad. Im gonna keep it at 1MHz. Once again the speed of the graph is much better but not the greatest in tracking that were going to be doing.
 
-        3/14/26
+      # 3/14/26
 
         - Installed OpenCV to capture thermal frames instead. I first normalized the image from temperature readings from the sensor to image pixels to be displayed on OpenCV. I added interpolation which fixes our laggy issue between each frame.
           
@@ -239,6 +239,21 @@
               img = cv2.applyColormap(img,cv2.COLORMAP_INFERNO)
 
           - [![OPENCV INFERNO COLORMAP]](https://www.youtube.com/shorts/rCxOWqm78tQ)
+
+          - Taken from my last project, Ive implemented an exponential filter which smoothes movement between each frame. I put this in now since I plan on implementing PID control soon. 
+
+                alpha = 0.5 # adjust; alpha closer to 1 is slower but smoother, alpha closer to zero is faster but less smooth
+                filtered = None
+
+                while True:
+                   try:
+                       thermal.getFrame(frame)
+                       data = np.reshape(frame, (24,32))
+
+                  if filtered is None:
+                       filtered = data
+                  else:
+                    filtered = alpha*filtered + (1-alpha)*data
 
         
         
