@@ -322,6 +322,19 @@
 
           - For now our python code is essentially done. Now all thst left is switching over to the arduino side and sending this over the serial. The the arduino code I used the same code I used for my Camera Guided System because everything going on is pretty much the same. I have a pretty rogue setup going on with how I am connecting everything, but I put more time into it tomorrow.
           - its just about setting up and finding the port for python to send data over to. Then we'll test and see what went wrong with my code because I dont expect this to be completely flawless at all. So if youre reading up to this point, expect some mistakes. We'll find out what they are tomorrow.
+         
+          # 3/16/26
+
+      - Got the serial port id connected to my arduino to the raspberry pi
+
+
+                  python3 -m serial.tools.list_ports -v
+
+      - Plugged my port name /dev/tty50 into:
+
+                  Arduino = serial.Serial("/dev/tty50", 115200)
+
+    It doesnt respond to any of my data being sent from python. The seros also were jittering and acting out even when powered on and I spent a good 15 minutes trying to examine why. Turns out I forgot to add a common ground between my arduino and my power supply. Just wow. 
 
           
           
