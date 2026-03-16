@@ -219,7 +219,7 @@
           
               (-215:Assertion failed) func != 0 in function 'resize'
 
-          Which all points back to our normalization code. OpenCV did not get the sufficient data it needed to convert the temperature readings. My MLX90640 sends floating point temperatures like (23.1C). OpenCV expects data in uint8 or uint16 format. I set up my code to run at 8 bit format. This emans we need nonnegative integers ranging from 0 to 255. So really all the fix is to put the 8 in the uint(img) part of the code to get it working again.
+          Which all points back to our normalization code. OpenCV did not get the sufficient data it needed to convert the temperature readings. My MLX90640 sends floating point temperatures like (23.1C). OpenCV expects data in uint8 or uint16 format. I set up my code to run at 8 bit format. This means we need nonnegative integers ranging from 0 to 255. So really all the fix is to put the 8 in the uint(img) part of the code to get it working again.
 
                import cv2
               
@@ -254,6 +254,82 @@
                        filtered = data
                   else:
                     filtered = alpha*filtered + (1-alpha)*data
+
+
+            # 3/15/26
+            
+            - I put a flame right in front of the camera. Everything blacked out. Heat from  my face and hands became dark while the flame captured all the heat.
+            What likely happened is that the flame is so hot compared to everything else it kinda broke the scale of what it considered hot. the value range is 0 to 255 where 0 is the lowest temperature and 255 being the brightest. The flame was the highest so it stretched the scale. So now my body heat is likely at 0 which shows up relatively cold. I dont know if this would be a problem for tracking later. It really depends on what I want to track honestly. I may end up wanting to track the flame. That would be really neat.
+
+            So far I like how everything looks. I think here is where ill start adding the tracking to try and set up the PID controller. Only problem is that I am not dealing with object detetction and color tracking but instead temperature ranges. So right now I am a little puzzled on how I am gonna go about that to get my measured value.
+
+            Error = Measured Value - setpoint.
+
+            I could to go with 2 routes.
+         
+            
+            1. Detetcting the hottest pixel and following that, or:
+            2. Detecting the hottest region
+           
+          I didnt know which one would produce the ebst result so I just played around with both to see what its like. Detecting the hottest pixel was not bad. I used the numpy argmax function and plugged the data inside.
+
+                  hottest = np.argmax(filtered)
+
+          This returns a flattened index, or a 1 dimensional array of temperature values. We want both an x and y values to calculate our error. We unravel the flattened index into coordinates:
+
+              x, y = np.unravel_index(hottest, filtered.shape
+
+          np.shape turns this into numbered coordinates.
+
+          I printed (x,y) to see how it was looking. It didnt come out too bad but I realized taht sometimes this hottest pixel could shift as I kept getting different coordinates even when I had the object sitting still. This could cause a lot of problems down the line. Especially with servo jittering. So instead I opted for detecting the hottest region and going off of that.
+
+          I used the np.mean function which get the average of my temperature data from the sensor and added 2 to it to get a threshold of values.
+          
+              threshold = np.mean(filtered) + 2
+              region = filtered > threshold
+
+
+          So everytime my data detected something greater than say 20C, that becomes my hottest region. I printed out the region adn I like this way better. The data seemed more consistent and not fidgety and all over the place compared to my hottest pixel idea. Now that I have my hottest region, I can find the centroid or better yet, where that hottest region is using the np.where function.
+          
+
+              y, x = np.where(region)
+
+              cx = np.mean(x)
+              cy = np.mean(y)
+
+          With this I finally have my measured value and now able to find my error. Simply put the error is simple to find
+          (Measured value - setpoint)
+          We now just found our measured value and now we just need a setpoint.
+          - My MLX90640 is a 32x24 (Width, Height) camera.
+          - The x setpoint is the middle of the screen. so we take half of 32 to make 16
+          - the y setpoint is the middle of the screen. So we take half of 24 to make 12
+         
+
+
+          The first of the controller that Ill be using is the P controller
+          - Output = Gain * error
+     
+            
+                Correction_x = KpX * error_x
+                Correction_y = KpY * error_y
+
+          - The hardest part is over now honestly all we have to do now is map these to the servos to send over to the Serial port. This took much less code then I thought and thought it would be much longer and much tougher than my prevous project with the logitech camera. I guess because were dealing with arrays numpy made it easier? I dont know if that makes any sense ebecause the camera pixels in a sense are arrays themselves. So could I have done the same for my previous project? I may test that theory out soon.
+         
+                servo_x = int(90 - correction_x*40)
+                servo_y = int(90 - correction_y*40)
+
+                Arduino.write(f"{int(servo_x)},{servo_y}\n".encode())
+
+          - For now our python code is essentially done. Now all thst left is switching over to the arduino side and sending this over the serial. The the arduino code I used the same code I used for my Camera Guided System because everything going on is pretty much the same. I have a pretty rogue setup going on with how I am connecting everything, but I put more time into it tomorrow.
+          - its just about setting up and finding the port for python to send data over to. Then we'll test and see what went wrong with my code because I dont expect this to be completely flawless at all. So if youre reading up to this point, expect some mistakes. We'll find out what they are tomorrow.
+
+          
+          
+
+
+      
+
+          
 
             
 
