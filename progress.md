@@ -334,8 +334,17 @@
 
                   Arduino = serial.Serial("/dev/tty50", 115200)
 
-    It doesnt respond to any of my data being sent from python. The seros also were jittering and acting out even when powered on and I spent a good 15 minutes trying to examine why. Turns out I forgot to add a common ground between my arduino and my power supply. Just wow. 
+    It doesnt respond to any of my data being sent from python. The servos also were jittering and acting out even when powered on and I spent a good 15 minutes trying to examine why. Turns out I forgot to add a common ground between my arduino and my power supply. Just wow. 
 
+
+# 3/17/26
+- My arduino servos arent moving at all or responding to the responses being sent by python.
+
+        sudo raspi-config
+        Interface Options - Serial Port - Enable Serial Port Hardware
+
+
+  Which didnt seem to do anything. First Im checking if the ports are in sync and actually sending things over.
           
           
 
