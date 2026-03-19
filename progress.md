@@ -345,6 +345,40 @@
 
 
   Which didnt seem to do anything. First Im checking if the ports are in sync and actually sending things over.
+
+
+  # 3/18/26
+
+  - I believe its the cable that im using. I typed dmesg -w into the terminal which lets me view what was plugged in and what was not. I plugged in and out the cable connecting to the arduino and it did not show up as anything. So this tells me that the cable that Im using is for power only and not data. Which is bumming because Ive spend a lot of time on this part and have to find a new cable to work with. The Arduino lights up but no data is being sent over.
+
+  I went and got aother cable and that didnt seem to get the job done either. Im using a USB A/C Cable and both cables seem not to work and just powers the arduino. I tried typing ls/dev/tty* and not seeing any cable.
+
+  I plugged in my Arduino Uno R3 to see if that worked and it popped up on my Raspberry Pi dmesg -w and the serial and everything else popped up as "ttyACM0". I am so happy to see this outcome. The past few days were spent in the dark. It is a minor hardware downgrade (well not really) but Ill be happy to use it if it works better with my project
+
+  Its a little old and dusty as I just had this in a box of tools in my closet and havent been used in like 4 years but it came out much better than my Arduino UNO R4 Minima could have.
+
+  ## Results
+  - Servos are moving in proportion to where the hottest region is
+  - OpenCV camera frame start to lag after about 20 seconds sending slow servo positions
+  - [![P CONTROLLED SERVO MAPPING]](https://www.youtube.com/shorts/Og03rHnTCiA)
+
+
+  I also increased the threshold:
+
+      threshold = np.mean(filtered) + 3
+
+  I started to notice that the servos would react to any sort of what in the area. Even when I add 3 it still kind of reacts to noise in the background. Slightly less but this will be an issue that were going to have to clean up in the future
+
+  I added a clamp to the servo positions using the np.clip function:
+
+      np.clip(servo_x, 0, 180)
+      np.clip(servo_y, 0, 180)
+  
+  I noticed that the servo positions went over 180 and below 0 when I printed both servo positions. This only occured when I raised the gain (Kp) on both servos from 0.1 to 0.2. So to not damage my servos I added these clamps just to keep it in check.
+
+    I really like the hottest region design because the frames are much much more stable. I can even see it in the servo positions. As soon as I stop moving the object emitting heat, the servos lock in the right position. Not much jitter really. The only problem is the Camera frame locking up and start to lag and produce minimal servo positions to send over. Its definitely something in the Python loop that may be overwhelming the frames causing it to lag? thats just my guess
+
+    - Overall today was a really good day. I figured out and solved the problem that held me up for a few days by switching the hardware from the Arduino Minima to the Arduino Uno R3. This led me down to more problems that need to solved such as the frame reezing problem and the background noise affecting the servo
           
           
 
