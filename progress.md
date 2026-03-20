@@ -379,6 +379,17 @@
     I really like the hottest region design because the frames are much much more stable. I can even see it in the servo positions. As soon as I stop moving the object emitting heat, the servos lock in the right position. Not much jitter really. The only problem is the Camera frame locking up and start to lag and produce minimal servo positions to send over. Its definitely something in the Python loop that may be overwhelming the frames causing it to lag? thats just my guess
 
     - Overall today was a really good day. I figured out and solved the problem that held me up for a few days by switching the hardware from the Arduino Minima to the Arduino Uno R3. This led me down to more problems that need to solved such as the frame reezing problem and the background noise affecting the servo
+
+
+
+# 3/19/26
+
+-  Tried checking if the CPU on the Raspberry PI was getting too hot. At 40C So I guess its fine
+-  Checking if there were memory build up as the frames kept going but it stayed the same.
+-  tried moving around my centroid detection, servo mapping, outside the while True loop. Nothing started.
+
+
+I dont get what the problem is. It works perfectly fine up until about 30 seconds or so and starts to lag tremendously.
           
           
 
