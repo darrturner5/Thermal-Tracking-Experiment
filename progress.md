@@ -390,8 +390,13 @@
 
 
 I dont get what the problem is. It works perfectly fine up until about 30 seconds or so and starts to lag tremendously.
+
+# 3/20/26
+- Soldered together a power board for the servos.
+- Used a RC snubber circuit to suppress current spikes of servos
           
-          
+  ![IMG_8512](https://github.com/user-attachments/assets/bb98e616-a400-40fd-8a2a-7dc0f0accb32)
+
 
 
       
