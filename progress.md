@@ -399,6 +399,21 @@ I dont get what the problem is. It works perfectly fine up until about 30 second
 
 
 
+# 3/21/26
+
+- Well I finally connected it altogether today to see what happens when its powered on.
+- Servos made a buzzing sound
+- Servos did not respond to the thermal camera movements
+
+  All this led me to conclude that the RC concoction that I threw together was too long of a delay for the servos to get any power
+  I used 2 470uF and 2 100uF Capacitors in parallel for the bank and a 1k resistor. Thats 1140uF combined. A 1140uF capacitor and 1k resistor RC circuit has a full charging time of 5.7 seconds which is why I didnt see the servos moving at all.
+
+  I suspected that that was the isue so I disconnected the resistor and applied power to the capacitors themselves and the servos ran fine. Any resistor Ive noticed adds this delay or makes the servos response very slow or unresponsive. The bigger capacitor bank works pretty well though. The current spikes arent that extreme anymore (over 0.40A). My highest Ive gotten was about 0.30A.
+
+
+Still the only problem is the freezing/ lagging camera frames on opencv after 30 or so seconds. I still havent gotten a fix for that.
+
+
       
 
           
