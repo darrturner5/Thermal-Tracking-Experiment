@@ -414,6 +414,14 @@ I dont get what the problem is. It works perfectly fine up until about 30 second
 Still the only problem is the freezing/ lagging camera frames on opencv after 30 or so seconds. I still havent gotten a fix for that.
 
 
+# 3/22/26
+-  Put together a frame and case for the Camera, Power board, Arduino. I left the Raspberry Pi out separately.
+-  Took out the tilt motion servo,
+![IMG_8517](https://github.com/user-attachments/assets/cd7d084c-08e8-4558-8001-7c0d83763a57)
+![IMG_8518](https://github.com/user-attachments/assets/0b2c614f-32da-483a-a158-615a5d472ada)
+![IMG_8519](https://github.com/user-attachments/assets/b37d9ae7-134d-4924-95dd-76b9527db0be)
+
+
       
 
           
