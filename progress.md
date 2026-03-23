@@ -422,6 +422,19 @@ Still the only problem is the freezing/ lagging camera frames on opencv after 30
 ![IMG_8519](https://github.com/user-attachments/assets/b37d9ae7-134d-4924-95dd-76b9527db0be)
 
 
+
+I like the design of everything and how it looks.
+
+[![P CONTROL Thermal Camera]](https://www.youtube.com/shorts/4j-wBSsUC-M)
+
+## P Control Results:
+- Jittery, Robotic movements
+- Overshooting slightly
+- Tracks and follows the flame decently
+- Gain of 0.05. Higher gain causes more oscillation and overshooting.
+
+
+
       
 
           
