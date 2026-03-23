@@ -423,6 +423,7 @@ Still the only problem is the freezing/ lagging camera frames on opencv after 30
 
 
 
+
 I like the design of everything and how it looks.
 
 [![P CONTROL Thermal Camera]](https://www.youtube.com/shorts/4j-wBSsUC-M)
