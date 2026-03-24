@@ -450,7 +450,9 @@ I like the design of everything and how it looks.
 
 
 Overall not terrible but its certaintly not the best. Tomorrow were going to test and code up the other versions of the controller.
-[![P Control Pan and Tilt]](https://www.youtube.com/shorts/tgETwxEr1io)
+
+
+[[P Control Pan and Tilt]](https://www.youtube.com/shorts/tgETwxEr1io)
 
 
 
