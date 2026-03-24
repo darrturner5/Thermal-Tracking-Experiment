@@ -435,6 +435,26 @@ I like the design of everything and how it looks.
 - Gain of 0.05. Higher gain causes more oscillation and overshooting.
 
 
+# 3/23/26
+
+- Added the tilt servo back
+- Both Pan and Tilt Gains are 0.06. Any higher causes oscillations and overshoot
+- Follows flame semi accurately
+- Slight Jitter
+- Needs a harder Threshold in Python to only react to the flame
+![IMG_8533](https://github.com/user-attachments/assets/eac3ada0-6328-4255-8195-600ada70c391)
+![IMG_8531](https://github.com/user-attachments/assets/cd84f8cf-948f-4729-893f-3108fc8262f5)
+![IMG_8532](https://github.com/user-attachments/assets/0069cddf-42bf-42b6-8877-9c2603d45662)
+
+
+
+
+Overall not terrible but its certaintly not the best. Tomorrow were going to test and code up the other versions of the controller.
+[![P Control Pan and Tilt]](https://www.youtube.com/shorts/tgETwxEr1io)
+
+
+
+
 
       
 
