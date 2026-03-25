@@ -455,6 +455,10 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
 [[P Control Pan and Tilt]](https://www.youtube.com/shorts/tgETwxEr1io)
 
 
+# 3/24/26
+- Attempted to add filter to detect objects emitting heat greater than 100C (fire)
+
+
 
 
 
