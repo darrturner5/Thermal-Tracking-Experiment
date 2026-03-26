@@ -458,6 +458,16 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
 # 3/24/26
 - Attempted to add filter to detect objects emitting heat greater than 100C (fire)
 
+# 3/25/26
+- implemented PD Control (Derivative term)
+- Calculated dt using:
+
+      prev_time = time.time()
+      current_time = time.time()
+      dt = current_time - prev_time
+
+      print (dt)
+
 
 
 
