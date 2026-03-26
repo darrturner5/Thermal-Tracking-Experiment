@@ -468,6 +468,18 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
 
       print (dt)
 
+  I got an average of about 8 - 10 fps thts about 0.1 dt
+
+  Right now the PD Control is terrible. Jumping around frame to frame and there are delays in the timing of the derivative term because the frames of the thermal camera arent stable. SO changing dt is a massive issue causing different delays and a whole bunch of non accurate readings. Also the filter that I made yesterday did not work. I going to have to change that. Its reading evevry little thing that emits heat so thats an issue im going to have to fix. I dont really like the PD control on here so far.
+
+  The Derivative kick is definetly there no matter how close to zero I set the gain. Its amplifying every single noise thats present in the thermal camera. Its either I put a stronger filter or take it out completely. Im going to put in and try PI and then the full PID to see what I like. but so far:
+
+  # PD Controller Results
+  - Excessive derivative kick
+  - Increased and excessive Jittering
+  - More sensitivity
+  - Not stable at all
+  
 
 
 
