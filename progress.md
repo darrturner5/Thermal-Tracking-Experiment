@@ -504,6 +504,9 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
 
 
 
+PID Works really well too. Everything is limited by the mechanical structure of the servos
+
+
 
       
 
