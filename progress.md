@@ -479,7 +479,28 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
   - Increased and excessive Jittering
   - More sensitivity
   - Not stable at all
-  
+
+  # 3/26/26
+  - No data
+
+
+  # 3/27/26
+  - Added in the Integral portion of the controller to make the full PID Structure.
+
+          Integral_x += error_x * dt
+          Integral_y += error_y * dt
+          integral_x = max(min(integral_x, 50), -50)
+          integral_y = max(min(integral_y, 50, -50)
+
+
+  - Today I am just going to tune around with the different Gain values to find a perfect balance between each one of them.
+  I definitely Take back my statement regarding the terrible and utter uselessness of the PD control on my Thermal tracking camera. I set the gain to 0.01 and it worked really well actually. Any higher than this would cause extra jittering and kick. 
+  - Kp Gain of 0.05
+  - Kd Gain of 0.01
+  - Ki Gain of 0.02
+          
+![IMG_8551](https://github.com/user-attachments/assets/673d0b10-87ca-4071-89a2-25f876cfa8c0)
+![IMG_8549](https://github.com/user-attachments/assets/9d24362b-b783-4514-a721-57836380ecd1)
 
 
 
