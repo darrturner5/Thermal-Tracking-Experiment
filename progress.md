@@ -504,7 +504,25 @@ Overall not terrible but its certaintly not the best. Tomorrow were going to tes
 
 
 
-PID Works really well too. Everything is limited by the mechanical structure of the servos
+PID Works really well too. Everything is limited by the mechanical structure of the servos.
+
+
+# 3/28/26
+
+- Today I am working on building a proper filter for the MLX90640. I already put in the full PID controller. This filter would make for better and more accurate trials regarding all the different types of controllers. 
+I kept getting scalar divide errors trying to implement it in. I had no clue where to even begin but I pinpointed it to either be around when I normalized the image, and the centroid detection because thats where this filter is applied to.
+
+It worked fine when I did:
+
+          threshold = np.mean(filtered)
+          region = data > threshold
+
+
+This broke when I set the threshold to 100.
+
+          masked_data = np.where(region, data, 0).astype(np.float32)
+
+
 
 
 
