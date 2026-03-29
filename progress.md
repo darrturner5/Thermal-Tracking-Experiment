@@ -522,9 +522,50 @@ This broke when I set the threshold to 100.
 
           masked_data = np.where(region, data, 0).astype(np.float32)
 
+          # Normalize Image
+        img = cv2.normalize(masked_data,None,0,255,cv2.NORM_MINMAX)
+        img = np.uint8(img) # stores only non-negative numbers
+        img = cv2.applyColorMap(img, cv2.COLORMAP_INFERNO)
+       
+       # enlarge image
+        img = cv2.resize(img,(640,380), interpolation=cv2.INTER_LINEAR)
+       
+        
+        # Centroid Detection
+        ys, xs = np.where(masked_data > 0)
+        if xs.size > 0 and ys.size > 0:
+            cx = np.mean(xs)
+            cy = np.mean(ys)
+        else:
+            cx,cy = None, None
+        
+        #Error Detection
+        if cx is not None and cy is not None:
+            error_x = cx - 16 # half the screen width
+            error_y = cy - 12 # half the screenheight
+        else:
+            error_x = 0
+            error_y = 0
 
 
 
+above is an updated sketch of the mask to the camera. It is not the best as the background is completely blacked out but it does work in only being able to see anything hotter than 100C. The main issue was the centroid detection.
+- ys, xs = np.where(masked_data) sent nonzero pixels. masked_data probably had no pixels above 0 leaving xs and ys with empty sets.
+- np.mean in the centroid calculation is what triggered the scalar divide issue because its dividing by empty sets
+
+In order to avoid this issue, check if there are any pixels above 0 before calculating the average of them. 
+
+However I still ran into another issue, 
+
+        TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+        error_x = cx - 16
+
+cx and cy were returning None. so it cant subtract 16 from None therefore we have to specify which part of the statement that im recieving.
+If cx and cy arent None, Then we calculate the error.
+
+Now the result is just a black background masked unless I put a flame right in front of the camera which is over 100C This is perfect for what I am trying to do and Im fine without the extra thermal camera frames in the background. I think that was causing it to lag anyways because Ive noticed that the frames ran much more smooth and consistent at 8-10 fps and that lag/ freezing problem didnt occur till a bit long. ( im still trying to see if I could fix that)
+
+Right now I have to fix the actual mechanical structure of the servos themselves because they are starting to hit each other and limit the range and causing them to spike current rapidly. Its only the zip tie getting in the way.
 
       
 
