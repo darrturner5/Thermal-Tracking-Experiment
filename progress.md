@@ -567,6 +567,23 @@ Now the result is just a black background masked unless I put a flame right in f
 
 Right now I have to fix the actual mechanical structure of the servos themselves because they are starting to hit each other and limit the range and causing them to spike current rapidly. Its only the zip tie getting in the way.
 
+
+# 3/30/26
+
+- Test PI Control today
+- Kp Gains 0.06
+- Ki Gain 0.02
+
+# PI Controller (Proportional - Integral) 
+- Follows the flame accurately with no Jitter.
+- Locks onto the flame when steady.
+
+
+  I think that this one may be the best one actually
+
+![IMG_8562](https://github.com/user-attachments/assets/025e1dfd-84fa-491c-b4f1-ae4b582fcabb)
+![IMG_8563](https://github.com/user-attachments/assets/0c1b7fd8-e164-4080-8469-13f15dc2a2aa)
+
       
 
           
