@@ -584,6 +584,18 @@ Right now I have to fix the actual mechanical structure of the servos themselves
 ![IMG_8562](https://github.com/user-attachments/assets/025e1dfd-84fa-491c-b4f1-ae4b582fcabb)
 ![IMG_8563](https://github.com/user-attachments/assets/0c1b7fd8-e164-4080-8469-13f15dc2a2aa)
 
+
+# 4/1/26
+
+- What I did notice was during the PI control tests, the servos would continously try to correct itself away from the flame.
+- Tilt servo remained stable
+
+I just lowered the Ki gain as I knew that this was a symptom of the integral portion of the PI control. That eliminating of steady state errors to push the camera more towards the center of the screen.
+the Ki gain is 0.01 for the Tilt portion.
+
+Overall I have to say, the PI control looks the most promising. Its the most stable out of the rest in my opinion. The only thing that is the problem is the mechaical positioning of the two servos. 
+The PID Control works really well too, Its just that it goes crazy with fast mvoement of the flame.
+
       
 
           
